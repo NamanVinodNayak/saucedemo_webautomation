@@ -1,8 +1,11 @@
+import pytest
+
 from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from login import login_page
+from inventory import inventory_page
 
 driver = webdriver.Chrome()
 driver.get("https://www.saucedemo.com/")
@@ -12,3 +15,9 @@ print(f"Page Title: {driver.title}")
 
 login_page = login_page(driver)
 login_page.login_user()
+
+assert "inventory" in driver.current_url
+print("Login successful")
+
+inventory_page = inventory_page(driver)
+inventory_page.print_product_details()

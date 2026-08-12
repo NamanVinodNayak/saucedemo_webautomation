@@ -6,7 +6,7 @@ from pages.login import login_page
 from pages.inventory import inventory_page
 from pages.cart import cart_page
 
-driver = webdriver.Edge()
+driver = webdriver.Chrome()
 driver.get("https://www.saucedemo.com/")
 driver.implicitly_wait(5)
 driver.maximize_window()

@@ -5,6 +5,11 @@ from dataclasses import dataclass
 class Page:
     marker: str
     url: str
+    
+@dataclass
+class logindetails:
+    username: str
+    password: str
 
 # Define your pages here
 LoginPage = Page(
@@ -18,4 +23,10 @@ InventoryPage = Page(
 CartPage = Page(
     marker="cart", 
     url="https://www.saucedemo.com/cart.html"
+    )
+
+# Credentials for login
+login_credentials = logindetails(
+    username="standard_user", 
+    password="secret_sauce"
     )

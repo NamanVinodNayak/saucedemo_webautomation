@@ -1,10 +1,11 @@
 from selenium.webdriver.common.by import By
+from page_data import login_credentials
 
 class login_page:
     def __init__(self, driver):
         self.driver = driver
-        self.username = "standard_user"
-        self.password = "secret_sauce"
+        self.username = login_credentials.username
+        self.password = login_credentials.password
         self.username_field = (By.ID, "user-name")
         self.password_field = (By.ID, "password")
         self.login_button = (By.ID, "login-button")

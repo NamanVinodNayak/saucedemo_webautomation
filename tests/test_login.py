@@ -1,7 +1,7 @@
 import pytest
 import logging
 
-from page_data import InventoryPage
+from page_data import InventoryPage, login_credentials
 from pages.login import login_page
 
 # Configure logger
@@ -13,7 +13,7 @@ def test_valid_login(driver):
     login = login_page(driver)
 
     logger.info("Starting login test")
-    login.login_user()
+    login.login_user(login_credentials.username, login_credentials.password)
     logger.info("Login performed")
 
     assert driver.current_url == inventory_page.url

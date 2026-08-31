@@ -18,5 +18,10 @@ def test_inventory_page(driver):
     assert inventory.get_product_count() == inventory_test_data.expected_product_count, \
         "Product count does not match expected value."
     
-    assert inventory_test_data.product_name in inventory.get_product_names(), \
-        f"{inventory_test_data.product_name} not found in product names."
+    assert all(name in inventory.get_product_names() for name in inventory_test_data.product_names), \
+        f"One or more products not found in product names."
+        
+    inventory.add_to_cart(inventory_test_data.product_names)
+    assert inventory.carted_product_number() == len(inventory_test_data.product_names), \
+        "Cart count does not match expected value."
+        

@@ -23,3 +23,4 @@ def driver(request):
     driver.get(BASE_URL)   # always open the base site first
     yield driver
     driver.quit()
+    print("\nDriver Closed!")

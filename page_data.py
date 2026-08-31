@@ -14,7 +14,7 @@ class logindetails:
 @dataclass
 class InventoryTestData:
     expected_product_count: int
-    product_name: str
+    product_names: list
 
 # Define your pages here
 LoginPage = Page(
@@ -39,5 +39,5 @@ login_credentials = logindetails(
 # Inventory test data
 inventory_test_data = InventoryTestData(
     expected_product_count=6,
-    product_name="Sauce Labs Bolt T-Shirt"
+    product_names=["Sauce Labs Bolt T-Shirt", "Sauce Labs Backpack"],
     )

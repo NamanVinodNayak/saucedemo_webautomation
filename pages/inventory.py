@@ -26,6 +26,11 @@ class inventory_page:
         product_names = self.driver.find_elements(By.CSS_SELECTOR,".inventory_item_name")
         return [name.text for name in product_names]
     
-    def add_to_cart(self, product_name):
-        product = self.driver.find_element(By.XPATH, f"//div[text()='{product_name}']/ancestor::div[@class='inventory_item']//button")
-        product.click()
+    def add_to_cart(self, product_names):
+        for name in product_names:
+            product = self.driver.find_element(By.XPATH, f"//div[text()='{name}']/ancestor::div[@class='inventory_item']//button")
+            product.click()
+        
+    def carted_product_number(self):
+        carted_product_count = self.driver.find_element(By.XPATH,"//span[@class='shopping_cart_badge']").text
+        return int(carted_product_count) if carted_product_count else 0

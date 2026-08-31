@@ -11,6 +11,11 @@ class logindetails:
     username: str
     password: str
 
+@dataclass
+class InventoryTestData:
+    expected_product_count: int
+    product_name: str
+
 # Define your pages here
 LoginPage = Page(
     marker="login", 
@@ -29,4 +34,10 @@ CartPage = Page(
 login_credentials = logindetails(
     username="standard_user", 
     password="secret_sauce"
+    )
+
+# Inventory test data
+inventory_test_data = InventoryTestData(
+    expected_product_count=6,
+    product_name="Sauce Labs Bolt T-Shirt"
     )

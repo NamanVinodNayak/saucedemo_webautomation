@@ -1,6 +1,6 @@
 from selenium.webdriver.common.by import By
 
-class cart_page:
+class CartPage:
     def __init__(self, driver):
         self.driver = driver
         self.go_to_cart_field = (By.XPATH,"//a[@class='shopping_cart_link']")

@@ -7,7 +7,7 @@ class Page:
     url: str
     
 @dataclass
-class logindetails:
+class LoginDetails:
     username: str
     password: str
 
@@ -17,21 +17,21 @@ class InventoryTestData:
     product_names: list
 
 # Define your pages here
-LoginPage = Page(
+login_page = Page(
     marker="login", 
     url="https://www.saucedemo.com/"
     )
-InventoryPage = Page(
+inventory_page = Page(
     marker="inventory", 
     url="https://www.saucedemo.com/inventory.html"
     )
-CartPage = Page(
+cart_page = Page(
     marker="cart", 
     url="https://www.saucedemo.com/cart.html"
     )
 
 # Credentials for login
-login_credentials = logindetails(
+login_credentials = LoginDetails(
     username="standard_user", 
     password="secret_sauce"
     )

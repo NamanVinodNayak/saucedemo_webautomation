@@ -1,6 +1,6 @@
 from selenium.webdriver.common.by import By
 
-class inventory_page:
+class InventoryPage:
     def __init__(self, driver):
         self.driver = driver
         self.total_products_field = (By.CSS_SELECTOR,".inventory_item")

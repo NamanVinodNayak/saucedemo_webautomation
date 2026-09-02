@@ -1,15 +1,28 @@
 import pytest
 import os
-from test_list import test_files   # import the list
+from datetime import datetime
+from test_list import test_files
+
 
 def run_selected_tests():
     os.makedirs("reports", exist_ok=True)
 
     for test_file in test_files:
-        base_name = os.path.basename(test_file).replace(".py", "")
-        report_file = f"reports/{base_name}_report.html"
 
-        print(f"Running {test_file} → {report_file}")
+        # Get test file name
+        file_name = os.path.splitext(os.path.basename(test_file))[0]
+
+        # Generate date + time
+        timestamp = datetime.now().strftime("%Y-%m-%d_%H-%M-%S-%f")[:-3]
+
+        # Create unique report name
+        report_file = os.path.join(
+            "reports",
+            f"{file_name}_{timestamp}.html"
+        )
+
+        print(f"\nRunning: {test_file}")
+        print(f"Report:  {report_file}\n")
 
         pytest.main([
             test_file,
@@ -17,6 +30,7 @@ def run_selected_tests():
             f"--html={report_file}",
             "--self-contained-html"
         ])
+
 
 if __name__ == "__main__":
     run_selected_tests()

@@ -35,6 +35,14 @@ login_credentials = LoginDetails(
     username="standard_user", 
     password="secret_sauce"
     )
+invalid_login_credentials = LoginDetails(
+    username="invalid_user",
+    password="invalid_password"
+    )
+locked_out_credentials = LoginDetails(
+    username="locked_out_user",
+    password="secret_sauce"
+    )
 
 # Inventory test data
 inventory_test_data = InventoryTestData(
